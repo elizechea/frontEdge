@@ -13,6 +13,7 @@ var mimeTypes = {
 };
 
 http.createServer(staticServer).listen(3000);
+console.log("escuchando... Mira en http://localhost:3000 ");
 
 function staticServer(req, res) {
 	var urlParseada = url.parse(req.url);
