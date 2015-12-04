@@ -1,3 +1,4 @@
+var p = process;
 "use strict";
 
 var http = require('http'),
@@ -12,8 +13,11 @@ var mimeTypes = {
 	"css": "text/css"
 };
 
+
+var nombre = p.argv[2];
+
 http.createServer(staticServer).listen(3000);
-console.log("escuchando... Mira en http://localhost:3000 ");
+console.log('escuchando... '+ nombre+' Mira en http://localhost:3000 ');
 
 function staticServer(req, res) {
 	var urlParseada = url.parse(req.url);
@@ -23,7 +27,7 @@ function staticServer(req, res) {
 
 function fileServer(res, pathname) {
 	if(pathname==="/") pathname = "/index.html";
-	var filename = path.join(process.cwd(), pathname);
+	var filename = path.join(p.cwd(),nombre, pathname);
 	var extension = path.extname(filename).split(".")[1];
 	if (!extension) {
 		extension = "html";
