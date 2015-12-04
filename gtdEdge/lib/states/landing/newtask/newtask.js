@@ -5,10 +5,17 @@ let name = 'newtask'
 
 ng.module(name, ['ngMaterial'])
 	.component(name, {
-  		templateUrl: `./lib/states/landing/${name}/${name}.html`,
-			controller : function(){
-				this.task = {}
-			}
+		templateUrl: `./lib/states/landing/${name}/${name}.html`,
+		bindings: {
+			tasks: '='
+		},
+		controller: function () {
+			this.save = ()=>{
+					var task = {title:ng.copy(this.title)}
+					this.tasks.push(task)
+					this.title = ''
+				}
+		}
 		})
 
-export default name;	
+export default name	

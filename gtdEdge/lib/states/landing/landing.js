@@ -11,7 +11,9 @@ ng.module(name, [newtask, todaytasks, taskstools, 'ngMaterial'])
 	.component(name, {
   		templateUrl: `./lib/states/${name}/${name}.html`,
 		controller: function () {
-
+			this.tasks = [
+				{ title: 'Probar Material Design', description: 'Contenedores y listas', done: true },
+				{ title: 'Practicar componentes', description: 'Usar controladores y scope', done: false }]
 		}
 		})
 

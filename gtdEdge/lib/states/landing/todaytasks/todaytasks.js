@@ -6,10 +6,11 @@ let name = 'todaytasks'
 ng.module(name, ['ngMaterial'])
 	.component(name, {
   		templateUrl: `./lib/states/landing/${name}/${name}.html`,
+			bindings: {
+				tasks: '='
+			},
 			controller : function(){
-				this.tasks = [
-					{title:'Probar Material Design', description:'Contenedores y listas', done:true},
-					{title:'Practicar componentes', description:'Usar controladores y scope', done:false}]
+				
 			}
 		})
 
