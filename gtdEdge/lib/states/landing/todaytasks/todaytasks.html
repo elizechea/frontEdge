@@ -1,0 +1,18 @@
+<md-toolbar class="md-accent">
+	<div class="md-toolbar-tools" layout="column" layout-padding>
+		<md-icon>alarm</md-icon>
+		<h2>Mis tareas para hoy</h2>
+		<span flex></span>
+	</div>
+</md-toolbar>
+<md-content flex layout-padding>
+	<md-list>
+		<md-list-item class="md-2-line" ng-repeat="task in todaytasks.tasks">
+			<md-checkbox ng-model="tarea.done"></md-checkbox>
+			<div class="md-list-item-text">
+				<h3>{{task.title}}</h3>
+				<p>{{task.description}}</p>
+			</div>
+		</md-list-item>
+	</md-list>
+</md-content>

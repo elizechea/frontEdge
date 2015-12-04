@@ -1,8 +1,8 @@
 import ng from 'angular'
-import am from 'angular-material'
 
-import landing from './states/landing/landing.js'
+import common from './common/common.js'
+import states from './states/states.js'
 
-ng.module('frontEdge', [landing, 'ngMaterial'])
+ng.module('frontEdge', [common, states])
 
 ng.element(document).ready(() => ng.bootstrap(document, ['frontEdge']))
