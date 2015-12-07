@@ -1,2 +1,32 @@
-editTask.task:
-{{ editTask.task }}
+<div flex layout="row" layout-align="center center">
+    <div flex-sm="100" flex-gt-sm="90" flex-gt-md="70" flex-gt-lg="50" class="md-whiteframe-z2">
+        <md-content class="md-padding">
+            <div flex-sm="100" flex-gt-sm="80" layout-sm="column">
+                <form name="taskForm" data-ng-submit="editTask.saveTask()">
+                    <md-input-container>
+                        <label>Title:</label>
+                        <input ng-model="editTask.task.title" >
+                    </md-input-container>
+                    <md-input-container flex>
+                        <label>Description:</label>
+                        <textarea ng-model="editTask.task.description" columns="1" ></textarea>
+                    </md-input-container>
+										<md-input-container flex>
+                        <label>Created Date:</label>
+                        <input ng-model="editTask.task.createdDate" type="date" readonly>
+                    </md-input-container>
+										<md-input-container flex>
+                        <label>Due Date:</label>
+                        <input ng-model="editTask.task.dueDate" type="date" >
+                    </md-input-container>
+										<md-input-container flex>
+                        <label>Done:</label>
+                        <input ng-model="editTask.task.done" type="checkbox" ></input>
+                    </md-input-container>
+ 
+                    <md-button type="submit" class="md-primary">Save Task</md-button>
+                </form>
+            </div>
+        </md-content>
+    </div>
+</div>

@@ -1,11 +1,11 @@
 <md-content flex layout-padding>
 	<md-list>
 		<md-list-item class="md-3-line" ng-repeat="task in allTasks.tasks">
-			<md-checkbox ng-model="task.done"></md-checkbox>
-			<div class="md-list-item-text">
+			<md-button ng-link="editTask({id:task.id})">Edit</md-button>
+			<div class="md-list-item-text" >
 				<h3>{{task.title}}</h3>
-				<p>{{task.description}} {{task.status}}</p>
-				<p>created:{{task.datecreated | date}} duedate:{{task.duedate | date }} donedate:{{task.donedate | date }}</p>
+				<p>{{task.description}}</p>
+				<p>created:{{task.createdDate | date}} duedate:{{task.dueDate | date }} doneDate:{{task.doneDate | date }}</p>
 			</div>
 		</md-list-item>
 	</md-list>

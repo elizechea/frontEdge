@@ -9,6 +9,9 @@ ng.module(name, ['ngMaterial'])
 function EditTaskController($routeParams,tasksDataService) {
 			let taskId = $routeParams.id
 			this.task = tasksDataService.findTask(taskId)
+			this.saveTask = ()=>{
+				tasksDataService.updateTask(taskId)
+			}
 		}
 
 export default name;	
