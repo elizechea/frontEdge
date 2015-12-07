@@ -5,7 +5,7 @@ let name = 'newtask'
 
 ng.module(name, ['ngMaterial'])
 	.component(name, {
-		templateUrl: `./lib/components/landing/${name}/${name}.html`,
+		templateUrl: `./components/landing/${name}/${name}.html`,
 		bindings: {
 			tasks: '='
 		},

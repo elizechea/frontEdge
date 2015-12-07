@@ -5,7 +5,7 @@ let name = 'titlebar'
 
 ng.module(name, ['ngMaterial'])
 	.component(name, {
-  		templateUrl: `./lib/components/${name}/${name}.html`
+  		templateUrl: `./components/${name}/${name}.html`
 		})
 
 export default name;	
