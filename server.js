@@ -20,6 +20,7 @@ http.createServer(staticServer).listen(3000);
 console.log('escuchando... '+ nombre+' Mira en http://localhost:3000 ');
 
 function staticServer(req, res) {
+	if(req.url.indexOf('jspm_packages')<0) console.log("req.url: " + req.url);
 	var urlParseada = url.parse(req.url);
 	var pathname = urlParseada.pathname;
 	fileServer(res, pathname);
