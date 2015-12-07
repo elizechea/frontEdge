@@ -3,7 +3,7 @@
 		<md-list-item>
 			<md-icon>alarm</md-icon>
 			<div class="md-list-item-text">
-				<h3>Tareas para Hoy</h3>
+				<h3>Today tasks</h3>
 			</div>
 		</md-list-item>
 	</md-list>
@@ -11,10 +11,10 @@
 </md-toolbar>
 <md-content flex layout-padding>
 	<md-list>
-		<md-list-item class="md-2-line" ng-repeat="task in todaytasks.tasks">
-			<md-checkbox ng-model="task.done"></md-checkbox>
+		<md-list-item class="md-2-line" ng-repeat="task in todayTasks.tasks">
+			<md-checkbox ng-model="task.done" ng-change="todayTasks.update(task.id)"></md-checkbox>
 			<div class="md-list-item-text">
-				<a ng-link="edittask({id:task.id})">
+				<a ng-link="editTask({id:task.id})">
 					<h3>{{task.title}}</h3>
 					<p>{{task.description}}</p>
 				</a>

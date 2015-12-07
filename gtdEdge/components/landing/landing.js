@@ -1,20 +1,17 @@
 import ng from 'angular'
 import am from 'angular-material'
 
-import tasksdata from '../services/tasksdata.js'
-
-
-import newtask from './newtask/newtask.js'
-import todaytasks from './todaytasks/todaytasks.js'
-import taskstools from './taskstools/taskstools.js'
+import newTask from './new-task/new-task.js'
+import todayTasks from './today-tasks/today-tasks.js'
+import tasksTools from './tasks-tools/tasks-tools.js'
 
 let name = 'landing'
 
-ng.module(name, ['ngMaterial', tasksdata, newtask, todaytasks, taskstools])
+ng.module(name, ['ngMaterial', newTask, todayTasks, tasksTools])
 	.controller ('LandingController',LandingController)
 
-function LandingController(tasksdataService) {
-			this.tasks = tasksdataService.tasks
+function LandingController(tasksDataService) {
+			this.tasks = tasksDataService.tasks
 }
 
 export default name

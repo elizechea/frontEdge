@@ -14,8 +14,8 @@
 		<md-list-item class="md-2-line">
 			<md-icon class="md-primary">add_alarm</md-icon>
 			<div class="md-list-item-text">
-				<a ng-link="alltasks">
-					<h3>{{taskstools.tasks.length}} Sin procesar</h3>
+				<a ng-link="allTasks">
+					<h3>{{tasksTools.taskCounter.notScheduledTasks}} Sin procesar</h3>
 					<p>Tareas que no has clasificado</p>
 				</a>
 			</div>
@@ -24,7 +24,7 @@
 		<md-list-item class="md-2-line">
 			<md-icon class="md-primary">alarm</md-icon>
 			<div class="md-list-item-text">
-				<h3>{{taskstools.tasks.length}}  Pendientes</h3>
+				<h3>{{tasksTools.taskCounter.scheduledTasks}}  Pendientes</h3>
 				<p>Tareas que no has realizado</p>
 			</div>
 			<md-divider md-inset></md-divider>
@@ -32,7 +32,7 @@
 		<md-list-item class="md-2-line">
 			<md-icon class="md-primary">done</md-icon>
 			<div class="md-list-item-text">
-				<h3>{{taskstools.tasks.length}}  Completadas</h3>
+				<h3>{{tasksTools.taskCounter.doneTasks}}  Completadas</h3>
 				<p>Tareas ya realizadas. Muy bien!!!</p>
 			</div>
 			<md-divider md-inset></md-divider>

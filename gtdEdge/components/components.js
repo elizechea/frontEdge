@@ -2,11 +2,11 @@ import ng from 'angular'
 
 let name = 'components'
 
-import titlebar from './titlebar/titlebar.js'
+import titleBar from './title-bar/title-bar.js'
 import landing from './landing/landing.js'
-import alltasks from './alltasks/alltasks.js'
-import edittask from './edittask/edittask.js'
+import allTasks from './all-tasks/all-tasks.js'
+import editTask from './edit-task/edit-task.js'
 
-ng.module(name, [titlebar,landing,alltasks,edittask])
+ng.module(name, [titleBar,landing,allTasks,editTask])
 
 export default name;	
