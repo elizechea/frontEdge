@@ -10,8 +10,9 @@ ng.module(name, ['ngMaterial'])
 			tasks: '='
 		},
 		controller: function () {
+			// to do: tasksDataService.create(ng.copy(this.title))
 			this.save = ()=>{
-					var task = {title:ng.copy(this.title)}
+					var task = {id: this.tasks.length, title:ng.copy(this.title) , datecreated: new Date()}
 					this.tasks.push(task)
 					this.title = ''
 				}

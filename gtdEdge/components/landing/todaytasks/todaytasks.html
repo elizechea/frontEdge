@@ -12,10 +12,12 @@
 <md-content flex layout-padding>
 	<md-list>
 		<md-list-item class="md-2-line" ng-repeat="task in todaytasks.tasks">
-			<md-checkbox ng-model="tarea.done"></md-checkbox>
+			<md-checkbox ng-model="task.done"></md-checkbox>
 			<div class="md-list-item-text">
-				<h3>{{task.title}}</h3>
-				<p>{{task.description}}</p>
+				<a ng-link="edittask({id:task.id})">
+					<h3>{{task.title}}</h3>
+					<p>{{task.description}}</p>
+				</a>
 			</div>
 		</md-list-item>
 	</md-list>

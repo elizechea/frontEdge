@@ -1,2 +1,12 @@
-alltasks.tasks:
-{{ alltasks.tasks }}
+<md-content flex layout-padding>
+	<md-list>
+		<md-list-item class="md-3-line" ng-repeat="task in alltasks.tasks">
+			<md-checkbox ng-model="task.done"></md-checkbox>
+			<div class="md-list-item-text">
+				<h3>{{task.title}}</h3>
+				<p>{{task.description}} {{task.status}}</p>
+				<p>created:{{task.datecreated | date}} duedate:{{task.duedate | date }} donedate:{{task.donedate | date }}</p>
+			</div>
+		</md-list-item>
+	</md-list>
+</md-content>

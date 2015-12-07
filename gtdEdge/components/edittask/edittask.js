@@ -7,8 +7,9 @@ let name = 'edittask'
 ng.module(name, ['ngMaterial',tasksdata])
 	.controller ('EdittaskController',EdittaskController)
 
-function EdittaskController(tasksdataService) {
-			this.tasks = tasksdataService.tasks
+function EdittaskController($routeParams,tasksdataService) {
+			let taskId = $routeParams.id
+			this.task = tasksdataService.tasks.find(t => t.id == taskId)
 		}
 
 export default name;	
