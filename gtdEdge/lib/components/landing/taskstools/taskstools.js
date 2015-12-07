@@ -5,7 +5,7 @@ let name = 'taskstools'
 
 ng.module(name, ['ngMaterial'])
 	.component(name, {
-  		templateUrl: `./lib/states/landing/${name}/${name}.html`,
+  		templateUrl: `./lib/components/landing/${name}/${name}.html`,
 			controller : function(){}
 		})
 

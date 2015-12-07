@@ -9,7 +9,7 @@ let name = 'landing'
 
 ng.module(name, [newtask, todaytasks, taskstools, 'ngMaterial'])
 	.component(name, {
-  		templateUrl: `./lib/states/${name}/${name}.html`,
+  		templateUrl: `./lib/components/${name}/${name}.html`,
 		controller: function () {
 			this.tasks = [
 				{ title: 'Probar Material Design', description: 'Contenedores y listas', done: true },
