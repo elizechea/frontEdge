@@ -19,13 +19,13 @@
 <md-content flex layout-padding>
 	<md-list>
 		<md-list-item class="md-3-line" ng-repeat="task in allTasks.tasks">
-			<md-button class="md-fab" ng-class="{ 'md-primary': task.done}" ng-link="editTask({id:task.id})">
+			<md-button class="md-fab" ng-class="{'md-primary': task.done}" ng-link="editTask({id:task.id})">
 				<md-icon>edit</md-icon>
 			</md-button>
 			<div class="md-list-item-text" >
 				<h3>{{task.title}}</h3>
 				<p>{{task.description}}</p>
-				<h4 ng-class="{ 'md-primary': !task.done}" >Created Date:{{task.createdDate | date}} Due Date:{{task.dueDate | date }} Done Date:{{task.doneDate | date }}</h4>
+				<h4>Created Date:{{task.createdDate | date}} Due Date:{{task.dueDate | date }} Done Date:{{task.doneDate | date }}</h4>
 			</div>
 		</md-list-item>
 	</md-list>
