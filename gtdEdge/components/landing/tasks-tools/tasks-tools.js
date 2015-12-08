@@ -6,9 +6,9 @@ let name = 'tasksTools'
 ng.module(name, ['ngMaterial'])
 	.component(name, {
   		templateUrl: './components/landing/tasks-tools/tasks-tools.html',
-			controller: function (tasksDataService) {
-				this.taskCounter = tasksDataService.taskCounter
-			}
+		bindings: {
+			counter: '='
+		}
 	})
 
 export default name;	

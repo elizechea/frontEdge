@@ -15,7 +15,7 @@
 			<md-icon class="md-primary">add_alarm</md-icon>
 			<div class="md-list-item-text">
 				<a ng-link="allTasks">
-					<h3>{{tasksTools.taskCounter.notScheduledTasks}} Pending</h3>
+					<h3><span class="md-display-1">{{tasksTools.counter.notScheduledTasks}} Pending</span></h3>
 					<p>Tasks with out a due date</p>
 				</a>
 			</div>
@@ -24,7 +24,7 @@
 		<md-list-item class="md-2-line">
 			<md-icon class="md-primary">alarm</md-icon>
 			<div class="md-list-item-text">
-				<h3>{{tasksTools.taskCounter.scheduledTasks}}  To be done</h3>
+				<h3><span class="md-display-1">{{tasksTools.counter.scheduledTasks}} To be done</span></h3>
 				<p>Tasks scheduled with a due date</p>
 			</div>
 			<md-divider md-inset></md-divider>
@@ -32,7 +32,7 @@
 		<md-list-item class="md-2-line">
 			<md-icon class="md-primary">done</md-icon>
 			<div class="md-list-item-text">
-				<h3>{{tasksTools.taskCounter.doneTasks}}  Completed</h3>
+				<h3><span class="md-display-1">{{tasksTools.counter.doneTasks}} Completed</span></h3>
 				<p>Tasks completed. Well done!!!</p>
 			</div>
 			<md-divider md-inset></md-divider>

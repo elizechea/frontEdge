@@ -7,11 +7,12 @@ ng.module(name, ['ngMaterial'])
 	.component(name, {
   		templateUrl: './components/landing/today-tasks/today-tasks.html',
 			bindings: {
-				tasks: '='
+				tasks: '=',
+				update: '&'
 			},
-			controller : function(tasksDataService){
-				this.update=(taskId)=>{
-					tasksDataService.updateTask(taskId)
+			controller : function(){
+				this.updateTask= function(taskId){
+					this.update({ taskId: taskId })				
 				}
 			}
 		})

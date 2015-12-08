@@ -8,11 +8,20 @@ import tasksTools from './tasks-tools/tasks-tools.js'
 let name = 'landing'
 
 ng.module(name, ['ngMaterial', newTask, todayTasks, tasksTools])
-	.controller ('LandingController',LandingController)
+	.controller('LandingController', LandingController)
 
 function LandingController(tasksDataService) {
-			this.tasks = tasksDataService.tasks
-			this.todayTasks = tasksDataService.findTodayTasks()
+	this.tasks = tasksDataService.tasks
+	this.taskCounter = tasksDataService.taskCounter
+	this.todayTasks = tasksDataService.findTodayTasks()
+	this.newTaskTitle = ''
+	this.createTask = () => {
+		tasksDataService.createTask(this.newTaskTitle)
+		this.newTaskTitle = ''
+	}
+	this.update = (taskId) => {
+		tasksDataService.updateTask(taskId)
+	}
 }
 
 export default name

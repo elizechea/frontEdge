@@ -12,7 +12,7 @@ function tasksDataService() {
 				{ id: 3, title: 'Practicar JSPM', description: 'Importar y referencias', createdDate: new Date('2015-12-04'), dueDate: null, doneDate: null, done: false }]
 
 	this.createTask = (title) => {
-				var task = { id: this.tasks.length + 1, title, createdDate: new Date(), dueDate: null, donedate: null }
+				var task = { id: this.tasks.length + 1, title, createdDate: new Date(), dueDate: null, doneDate: null, done: false }
 				this.tasks.push(task)
 				this.updateCounter()
 	}
@@ -35,9 +35,7 @@ function tasksDataService() {
 		return this.tasks.filter(task => task.done == false && task.dueDate != null)
 	}
 	this.findTodayTasks = () => {
-		let temp = this.tasks.filter(task => task.done == false && task.dueDate != null && task.dueDate.getDate() <= (new Date().getDate() + 1))
-		console.log(temp);
-		return temp;
+		return this.tasks.filter(task => task.done == false && task.dueDate != null && task.dueDate.getDate() <= (new Date().getDate() + 1))
 	}
 	this.findDoneTasks = () => {
 		return this.tasks.filter(task => task.done == true)
@@ -56,7 +54,6 @@ function tasksDataService() {
 		this.taskCounter.todayTasks = this.findTodayTasks().length
 		this.taskCounter.doneTasks = this.findDoneTasks().length
 	}
-
 
 }
 

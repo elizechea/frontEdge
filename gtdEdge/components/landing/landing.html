@@ -1,12 +1,12 @@
 <div layout="row">
   <div flex="5"></div>
-  <new-task flex="90" tasks="landing.tasks"></new-task>
+  <new-task flex="90" title="landing.newTaskTitle" create="landing.createTask()"></new-task>
   <div flex="5"></div>
 </div>
 
 <div layout="row">
   <div flex="5"></div>
-  <today-tasks flex="45" tasks="landing.todayTasks"></today-tasks>
-  <tasks-tools flex="45" ></tasks-tools>
+  <today-tasks flex="45" tasks="landing.todayTasks" update="landing.update(taskId)"></today-tasks>
+  <tasks-tools flex="45" counter="landing.taskCounter"></tasks-tools>
   <div flex="5"></div>
 </div>
