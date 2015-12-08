@@ -1,32 +1,47 @@
-<div layout="row">
+<md-toolbar layout="row" flex class="md-accent">
   <div flex="5"></div>
-  <md-content class="md-padding">
-    <div layout-sm="column">
-      <form name="taskForm" data-ng-submit="editTask.saveTask()">
-        <md-input-container>
-          <label>Title:</label>
-          <input ng-model="editTask.task.title">
-        </md-input-container>
-        <md-input-container flex>
-          <label>Description:</label>
-          <textarea ng-model="editTask.task.description" columns="1"></textarea>
-        </md-input-container>
-        <md-input-container flex>
-          <label>Created Date:</label>
-          <input ng-model="editTask.task.createdDate" type="date" readonly>
-        </md-input-container>
-        <md-input-container flex>
-          <label>Due Date:</label>
-          <input ng-model="editTask.task.dueDate" type="date">
-        </md-input-container>
-        <md-input-container flex>
-          <label>Done:</label>
-          <input ng-model="editTask.task.done" type="checkbox"></input>
-        </md-input-container>
+  <md-list layout="row">
+    <md-list-item>
+      <md-icon>edit</md-icon>
+      <div class="md-list-item-text">
+        <h3>Task editor</h3>
+      </div>
+    </md-list-item>
+    <md-list-item>
+      <md-icon>home</md-icon>
+      <div class="md-list-item-text">
+        <a ng-link="landing"><h3>Go Home</h3></a>
+      </div>
+    </md-list-item>
+  </md-list>
+  <div flex="5"></div>
+</md-toolbar>
+<md-content layout="row" class="md-padding">
+  <div flex="5"></div>
+  <div layout-sm="column">
+    <form name="taskForm" data-ng-submit="editTask.saveTask()">
+      <md-input-container>
+        <label>Title:</label>
+        <input ng-model="editTask.task.title">
+      </md-input-container>
+      <md-input-container flex>
+        <label>Description:</label>
+        <textarea ng-model="editTask.task.description" columns="1"></textarea>
+      </md-input-container>
+      <md-input-container flex>
+        <label>Created Date:</label>
+        <input ng-model="editTask.task.createdDate" type="date" readonly>
+      </md-input-container>
+      <md-input-container flex>
+        <label>Due Date:</label>
+        <input ng-model="editTask.task.dueDate" type="date">
+      </md-input-container>
+      <md-input-container flex>
+        <md-checkbox ng-model="editTask.task.done">Done</md-checkbox>
+      </md-input-container>
 
-        <md-button type="submit" class="md-primary">Save Task</md-button>
-      </form>
-    </div>
-  </md-content>
+      <md-button type="submit" class="md-primary">Save Task</md-button>
+    </form>
+  </div>
   <div flex="5"></div>
-</div>
+</md-content>
