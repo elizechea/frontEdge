@@ -12,6 +12,7 @@ ng.module(name, ['ngMaterial', newTask, todayTasks, tasksTools])
 
 function LandingController(tasksDataService) {
 			this.tasks = tasksDataService.tasks
+			this.todayTasks = tasksDataService.findTodayTasks()
 }
 
 export default name

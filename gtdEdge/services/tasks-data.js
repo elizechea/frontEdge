@@ -35,7 +35,9 @@ function tasksDataService() {
 		return this.tasks.filter(task => task.done == false && task.dueDate != null)
 	}
 	this.findTodayTasks = () => {
-		return this.tasks.filter(task => task.done == false && task.dueDate != null && task.dueDate.toLocaleDateString() == new Date().toLocaleDateString())
+		let temp = this.tasks.filter(task => task.done == false && task.dueDate != null && task.dueDate.getDate() <= (new Date().getDate() + 1))
+		console.log(temp);
+		return temp;
 	}
 	this.findDoneTasks = () => {
 		return this.tasks.filter(task => task.done == true)
