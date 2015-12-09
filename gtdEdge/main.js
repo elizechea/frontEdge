@@ -14,7 +14,7 @@ ng.module('frontEdge')
 
 AppController.$routeConfig = [
   { path: '/', component: 'landing'  },
-	{ path: '/alltasks', component: 'allTasks'  },
+	{ path: '/alltasks/:id', component: 'allTasks'  },
 	{ path: '/edittask/:id', component: 'editTask'  }
 ]
 

@@ -7,9 +7,9 @@ ng.module(name, [])
 
 function tasksDataService() {
 	this.tasks = [
-				{ id: 1, title: 'Probar Material Design', description: 'Contenedores y listas', createdDate: new Date('2015-12-03'), dueDate: null, doneDate: new Date('2015-12-04'), done: true },
-				{ id: 2, title: 'Practicar componentes', description: 'Usar controladores y scope', createdDate: new Date('2015-12-04'), doneDate: null, donedate: null, done: false },
-				{ id: 3, title: 'Practicar JSPM', description: 'Importar y referencias', createdDate: new Date('2015-12-04'), dueDate: null, doneDate: null, done: false }]
+				{ id: 1, title: 'Try Material Design', description: 'Containers and lists', createdDate: new Date('2015-12-03'), dueDate: null, doneDate: new Date('2015-12-04'), done: true },
+				{ id: 2, title: 'Practicing with components', description: 'Use of controllers and scope', createdDate: new Date('2015-12-04'), dueDate: new Date(), doneDate: null, done: false },
+				{ id: 3, title: 'Install JSPM', description: 'Import and references', createdDate: new Date('2015-12-04'), dueDate: null, doneDate: null, done: false }]
 
 	this.createTask = (title) => {
 				var task = { id: this.tasks.length + 1, title, createdDate: new Date(), dueDate: null, doneDate: null, done: false }
@@ -39,6 +39,15 @@ function tasksDataService() {
 	}
 	this.findDoneTasks = () => {
 		return this.tasks.filter(task => task.done == true)
+	}
+	this.findTasks = (status, query) => {
+		if(query)
+			return this.tasks.filter(task => task.title.indexOf(query)>=0)
+		else
+			if(status)
+				return this.tasks.filter(task => (task.doneDate && status=='completed') || (task.dueDate && status=='scheduled') || (!task.doneDate && !task.dueDate &&status=='pending'))
+			else
+				return this.tasks
 	}
 
 	this.taskCounter = {

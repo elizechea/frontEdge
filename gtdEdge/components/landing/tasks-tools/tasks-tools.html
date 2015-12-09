@@ -2,7 +2,7 @@
 	<md-list-item class="md-2-line">
 		<md-icon class="md-primary">add_alarm</md-icon>
 		<div class="md-list-item-text">
-			<a ng-link="allTasks">
+			<a ng-link="allTasks({id:'pending'})">
 				<h3><span class="md-display-1">{{tasksTools.counter.notScheduledTasks}} Pending</span></h3>
 				<p>Tasks with out a due date</p>
 			</a>
@@ -12,9 +12,9 @@
 	<md-list-item class="md-2-line">
 		<md-icon class="md-primary">alarm</md-icon>
 		<div class="md-list-item-text">
-			<a ng-link="allTasks">
-				<h3><span class="md-display-1">{{tasksTools.counter.scheduledTasks}} To be done</span></h3>
-				<p>Tasks scheduled with a due date</p>
+			<a ng-link="allTasks({id:'scheduled'})">
+				<h3><span class="md-display-1">{{tasksTools.counter.scheduledTasks}} Scheduled</span></h3>
+				<p>Tasks to be done with a due date</p>
 			</a>
 		</div>
 		<md-divider md-inset></md-divider>
@@ -22,7 +22,7 @@
 	<md-list-item class="md-2-line">
 		<md-icon class="md-primary">done</md-icon>
 		<div class="md-list-item-text">
-			<a ng-link="allTasks">
+			<a ng-link="allTasks({id:'completed'})">
 				<h3><span class="md-display-1">{{tasksTools.counter.doneTasks}} Completed</span></h3>
 				<p>Tasks completed. Well done!!!</p>
 			</a>
@@ -31,11 +31,11 @@
 	</md-list-item>
 	<md-list-item class="md-2-line">
 		<md-icon class="md-primary">search</md-icon>
-		<a ng-link="allTasks">
+		<a ng-link="allTasks({id:0})">
 			<div class="md-list-item-text">
-				<a ng-link="allTasks">
-					<h3><span class="md-display-1">Buscar</span></h3>
-					<p>Busca por etiqueta, fecha o texto</p>
+				<a ng-link="allTasks({id:'_'})">
+					<h3><span class="md-display-1">Search</span></h3>
+					<p>Search by tag, date or text</p>
 				</a>
 			</div>
 			<md-divider md-inset></md-divider>

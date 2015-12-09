@@ -4,10 +4,14 @@ import am from 'angular-material'
 let name = 'allTasks'
 
 ng.module(name, ['ngMaterial'])
-	.controller ('AllTasksController',AllTasksController)
+	.controller('AllTasksController', AllTasksController)
 
-function AllTasksController(tasksDataService) {
-			this.tasks = tasksDataService.tasks
-		}
+function AllTasksController($routeParams, tasksDataService) {
+	this.status = $routeParams.id != '_' ? $routeParams.id : null
+	this.tasks = tasksDataService.findTasks(this.status, this.query)
+	this.search = () => {
+				this.tasks = tasksDataService.findTasks(this.status, this.query)
+	}
+}
 
 export default name;	
