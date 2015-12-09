@@ -39,9 +39,12 @@
 			<div class="md-list-item-text" flex="40">
 				<h4>Created Date:{{task.createdDate | date}} Due Date:{{task.dueDate | date }} Done Date:{{task.doneDate | date }}</h4>
 			</div>
-			<md-button class="md-fab" ng-class="{'md-primary': task.done}" ng-link="editTask({id:task.id})">
-				<md-icon>edit</md-icon>
-			</md-button>
+			<span flex></span>
+			<span ng-switch on="task.status"  class="md-list-item-text">
+				<md-icon ng-switch-when="completed">alarm_add</md-icon>
+				<md-icon ng-switch-when="scheduled">alarm</md-icon>
+				<md-icon ng-switch-default>done</md-icon>
+			</span>
 		</md-list-item>
 	</md-list>
 	<div flex="5"></div>
