@@ -10,7 +10,10 @@ function AllTasksController($routeParams, tasksDataService) {
 	this.status = $routeParams.id != '_' ? $routeParams.id : null
 	this.tasks = tasksDataService.findTasks(this.status, this.query)
 	this.search = () => {
-				this.tasks = tasksDataService.findTasks(this.status, this.query)
+		this.tasks = tasksDataService.findTasks(this.status, this.query)
+	}
+	this.deleteTask = (taskId) => {
+		tasksDataService.deleteTask(taskId)
 	}
 }
 

@@ -10,8 +10,14 @@ function EditTaskController($routeParams, $router, tasksDataService) {
 	let taskId = $routeParams.id
 	this.task = tasksDataService.findTask(taskId)
 	this.saveTask = () => {
-				tasksDataService.updateTask(taskId)
-				$router.parent.navigate('/')
+		console.log("saving:" + taskId)
+		tasksDataService.updateTask(taskId)
+		$router.parent.navigate('/')
+	}
+	this.deleteTask = () => {
+		console.log("deleting:" + taskId)
+		tasksDataService.deleteTask(taskId)
+		$router.parent.navigate('/')
 	}
 }
 

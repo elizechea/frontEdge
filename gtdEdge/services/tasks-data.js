@@ -34,6 +34,11 @@ function tasksDataService() {
 			task.status = "pending"
 		this.updateCounter()
 	}
+	this.deleteTask= (taskId) => {
+		let taskIndex = this.tasks.findIndex(task => task.id == taskId)
+		this.tasks.splice(taskIndex,1)
+		this.updateCounter()
+	}
 	this.findNotScheduledTasks = () => {
 		return this.tasks.filter(task => task.done == false && task.dueDate == null)
 	}
