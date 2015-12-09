@@ -8,7 +8,15 @@ ng.module(name, ['ngMaterial'])
 		templateUrl: './components/landing/new-task/new-task.html',
 		bindings: {
 			title: '=',
-			create : '&'
+			create: '&'
+		},
+		controller: function(){
+			this.onKeyPress = ($event) => {
+				var keyCode = $event.which || $event.keyCode;
+				if (keyCode === 13) {
+					this.create()
+				}
+			}
 		}
 		})
 

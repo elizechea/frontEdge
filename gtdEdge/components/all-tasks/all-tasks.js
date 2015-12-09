@@ -15,6 +15,12 @@ function AllTasksController($routeParams, tasksDataService) {
 	this.deleteTask = (taskId) => {
 		tasksDataService.deleteTask(taskId)
 	}
+	this.onKeyPress = ($event) => {
+		var keyCode = $event.which || $event.keyCode;
+		if (keyCode === 13) {
+			this.tasks = tasksDataService.findTasks(this.status, this.query)
+		}
+	}
 }
 
 export default name;	

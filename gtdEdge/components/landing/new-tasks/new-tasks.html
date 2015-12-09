@@ -11,7 +11,7 @@
 </md-toolbar>
 <md-content flex layout-padding>
 	<md-list>
-		<md-list-item class="md-2-line" ng-repeat="task in newTasks.tasks" >
+		<md-list-item class="md-2-line" ng-repeat="task in newTasks.tasks | orderBy:'-id'" >
 			<md-button  class="md-fab md-primary" ng-link="editTask({id:task.id})">
 				<md-icon>edit</md-icon>
 			</md-button>

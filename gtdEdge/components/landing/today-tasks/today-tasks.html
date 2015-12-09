@@ -11,7 +11,7 @@
 </md-toolbar>
 <md-content flex layout-padding>
 	<md-list>
-		<md-list-item class="md-2-line" ng-repeat="task in todayTasks.tasks" >
+		<md-list-item class="md-2-line" ng-repeat="task in todayTasks.tasks | orderBy:'-id'" >
 			<md-checkbox ng-model="task.done" ng-change=" todayTasks.updateTask(task.id)"></md-checkbox>
 			<div class="md-list-item-text">
 					<h3>{{task.title}}</h3>
