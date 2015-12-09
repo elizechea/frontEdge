@@ -18,30 +18,32 @@
 </md-toolbar>
 <md-content layout="row" class="md-padding">
   <div flex="5"></div>
-  <div layout-sm="column">
-    <form name="taskForm" data-ng-submit="editTask.saveTask()">
-      <md-input-container>
-        <label>Title:</label>
-        <input ng-model="editTask.task.title">
-      </md-input-container>
-      <md-input-container flex>
-        <label>Description:</label>
-        <textarea ng-model="editTask.task.description" columns="1"></textarea>
-      </md-input-container>
-      <md-input-container flex>
-        <label>Created Date:</label>
-        <input ng-model="editTask.task.createdDate" type="date" readonly>
-      </md-input-container>
-      <md-input-container flex>
-        <label>Due Date:</label>
-        <input ng-model="editTask.task.dueDate" type="date">
-      </md-input-container>
-      <md-input-container flex>
-        <md-checkbox ng-model="editTask.task.done">Done</md-checkbox>
-      </md-input-container>
-
-      <md-button type="submit" class="md-primary">Save Task</md-button>
-    </form>
-  </div>
+  <form flex="90" name="taskForm" data-ng-submit="editTask.saveTask()">
+    <md-input-container>
+      <label>Title:</label>
+      <input ng-model="editTask.task.title">
+    </md-input-container>
+    <md-input-container flex>
+      <label>Description:</label>
+      <textarea ng-model="editTask.task.description" columns="1"></textarea>
+    </md-input-container>
+    <md-input-container flex>
+      <label>Created Date: (read only)</label>
+      <input ng-model="editTask.task.createdDate" type="date" readonly>
+    </md-input-container>
+    <div flex ng-hide="editTask.task.dueDate">
+      <label>Hurry up! Schedule this task:</label>
+      <md-datepicker ng-model="editTask.task.dueDate" md-placeholder="Enter a Due date"></md-datepicker>
+    </div>
+    <md-input-container flex ng-show="editTask.task.dueDate">
+      <label>Due Date:</label>
+      <input ng-model="editTask.task.dueDate" type="date">
+    </md-input-container>
+    <div flex>
+      <label>Is it Done?:</label>
+      <md-checkbox ng-model="editTask.task.done">Done</md-checkbox>
+    </div>  
+    <md-button type="submit" class="md-primary md-raised">Save Task</md-button>
+  </form>
   <div flex="5"></div>
 </md-content>
