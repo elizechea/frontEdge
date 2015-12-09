@@ -16,17 +16,38 @@
 	</md-list>
 	<div flex="5"></div>
 </md-toolbar>
-<md-content flex layout-padding>
-	<md-list>
-		<md-list-item class="md-3-line" ng-repeat="task in allTasks.tasks">
-			<md-button class="md-fab" ng-class="{'md-primary': task.done}" ng-link="editTask({id:task.id})">
-				<md-icon>edit</md-icon>
-			</md-button>
-			<div class="md-list-item-text" >
-				<h3>{{task.title}}</h3>
-				<p>{{task.description}}</p>
-				<h4>Created Date:{{task.createdDate | date}} Due Date:{{task.dueDate | date }} Done Date:{{task.doneDate | date }}</h4>
+<md-content flex layout="row">
+	<div flex="5"></div>
+	<md-list flex="90">
+		<md-list-item class="md-1-line">
+			<div class="md-list-item-text"  flex="5" >
+				<h3>Edit</h3>
+			</div>
+			<div class="md-list-item-text"  flex="40" >
+				<h3>Task</h3>
+			</div>
+			<div class="md-list-item-text"  flex="40">
+				<h3>Dates</h3>
+			</div>
+			<div class="md-list-item-text"  flex>
+				<h3>Status</h3>
 			</div>
 		</md-list-item>
+		<md-list-item class="md-2-line" ng-repeat="task in allTasks.tasks">
+			<md-button class="md-fab" ng-class="{'md-primary': task.done}" ng-link="editTask({id:task.id})" >
+				<md-icon>edit</md-icon>
+			</md-button>
+			<div class="md-list-item-text" flex="40" >
+				<h3>{{task.title}}</h3>
+				<p>{{task.description}}</p>
+			</div>
+			<div class="md-list-item-text" flex="40">
+				<h4>Created Date:{{task.createdDate | date}} Due Date:{{task.dueDate | date }} Done Date:{{task.doneDate | date }}</h4>
+			</div>
+			<md-button class="md-fab" ng-class="{'md-primary': task.done}" ng-link="editTask({id:task.id})" >
+				<md-icon>edit</md-icon>
+			</md-button>
+		</md-list-item>
 	</md-list>
+	<div flex="5"></div>
 </md-content>
