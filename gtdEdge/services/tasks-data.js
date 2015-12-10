@@ -6,11 +6,13 @@ ng.module(name, [])
 	.service('tasksDataService', tasksDataService)
 
 function tasksDataService($window) {
-	const storageKey = "tasks"
+	const tasksStorageKey = "tasks"
+	const taskIdStorageKey = "taskId"
 	this.tasks = []
+	this.taskId = 0
 	
 	this.loadData = function(){
-		let data = $window.localStorage.getItem( storageKey )
+		let data = $window.localStorage.getItem( tasksStorageKey )
 		if(data){
 			this.tasks = ng.fromJson( data )
 			this.tasks.forEach((t)=>{
@@ -25,8 +27,10 @@ function tasksDataService($window) {
 					{ id: 1, title: 'Try Material Design', description: 'Containers and lists', createdDate: new Date('2015-12-03'), dueDate: null, doneDate: new Date('2015-12-04'), done: true, status: 'completed' },
 					{ id: 2, title: 'Practicing with components', description: 'Use of controllers and scope', createdDate: new Date('2015-12-04'), dueDate: new Date(), doneDate: null, done: false, status: 'scheduled' },
 					{ id: 3, title: 'Install JSPM', description: 'Import and references', createdDate: new Date('2015-12-04'), dueDate: null, doneDate: null, done: false, status: 'pending' }]
+			this.taskId = 3
 			this.saveData()
 		}
+		this.taskId = $window.localStorage.getItem( taskIdStorageKey )
 	}
 	
 	this.jsonDate= (date)=>{
@@ -37,14 +41,15 @@ function tasksDataService($window) {
 	}
 	
 	this.saveData = function() {
-		let data = ng.toJson(ng.copy(this.tasks))
-		$window.localStorage.setItem( storageKey, data )
+		$window.localStorage.setItem( tasksStorageKey, ng.toJson(ng.copy(this.tasks)) )
+		$window.localStorage.setItem( taskIdStorageKey, ng.toJson(ng.copy(this.taskId)) )
 		this.updateCounter()
 	}
 	
 	this.createTask = (title) => {
 		if(title=='') return
-		var task = { id: title, title, createdDate: new Date(), dueDate: null, doneDate: null, done: false }
+		this.taskId++;
+		var task = { id: this.taskId, title, createdDate: new Date(), dueDate: null, doneDate: null, done: false }
 		this.tasks.push(task)
 		this.saveData()
 	}
