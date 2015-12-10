@@ -13,7 +13,7 @@ ng.module(name, ['ngMaterial'])
 		controller: function(){
 			this.onKeyPress = ($event) => {
 				var keyCode = $event.which || $event.keyCode;
-				if (keyCode === 13) {
+				if (keyCode === 13 && this.title!='') {
 					this.create()
 				}
 			}

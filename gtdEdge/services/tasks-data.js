@@ -5,16 +5,48 @@ let name = 'tasksData'
 ng.module(name, [])
 	.service('tasksDataService', tasksDataService)
 
-function tasksDataService() {
-	this.tasks = [
-				{ id: 1, title: 'Try Material Design', description: 'Containers and lists', createdDate: new Date('2015-12-03'), dueDate: null, doneDate: new Date('2015-12-04'), done: true, status: 'completed' },
-				{ id: 2, title: 'Practicing with components', description: 'Use of controllers and scope', createdDate: new Date('2015-12-04'), dueDate: new Date(), doneDate: null, done: false, status: 'scheduled' },
-				{ id: 3, title: 'Install JSPM', description: 'Import and references', createdDate: new Date('2015-12-04'), dueDate: null, doneDate: null, done: false, status: 'pending' }]
-
+function tasksDataService($window) {
+	const storageKey = "tasks"
+	this.tasks = []
+	
+	this.loadData = function(){
+		let data = $window.localStorage.getItem( storageKey )
+		if(data){
+			this.tasks = ng.fromJson( data )
+			this.tasks.forEach((t)=>{
+				t.createdDate=this.jsonDate(t.createdDate)
+				t.doneDate=this.jsonDate(t.doneDate)
+				t.dueDate=this.jsonDate(t.dueDate)
+				t.updatedDate=this.jsonDate(t.updatedDate)})
+			this.updateCounter()
+		}
+		else{
+			this.tasks = [
+					{ id: 1, title: 'Try Material Design', description: 'Containers and lists', createdDate: new Date('2015-12-03'), dueDate: null, doneDate: new Date('2015-12-04'), done: true, status: 'completed' },
+					{ id: 2, title: 'Practicing with components', description: 'Use of controllers and scope', createdDate: new Date('2015-12-04'), dueDate: new Date(), doneDate: null, done: false, status: 'scheduled' },
+					{ id: 3, title: 'Install JSPM', description: 'Import and references', createdDate: new Date('2015-12-04'), dueDate: null, doneDate: null, done: false, status: 'pending' }]
+			this.saveData()
+		}
+	}
+	
+	this.jsonDate= (date)=>{
+		if(date)
+			return new Date(date)
+		else 
+			return null
+	}
+	
+	this.saveData = function() {
+		let data = ng.toJson(ng.copy(this.tasks))
+		$window.localStorage.setItem( storageKey, data )
+		this.updateCounter()
+	}
+	
 	this.createTask = (title) => {
-				var task = { id: this.tasks.length + 1, title, createdDate: new Date(), dueDate: null, doneDate: null, done: false }
-				this.tasks.push(task)
-				this.updateCounter()
+		if(title=='') return
+		var task = { id: title, title, createdDate: new Date(), dueDate: null, doneDate: null, done: false }
+		this.tasks.push(task)
+		this.saveData()
 	}
 	this.findTask = (taskId) => {
 		return this.tasks.find(task => task.id == taskId)
@@ -32,12 +64,13 @@ function tasksDataService() {
 			task.status = "scheduled"
 		else
 			task.status = "pending"
-		this.updateCounter()
+		this.saveData()
+		
 	}
 	this.deleteTask= (taskId) => {
 		let taskIndex = this.tasks.findIndex(task => task.id == taskId)
 		this.tasks.splice(taskIndex,1)
-		this.updateCounter()
+		this.saveData()
 	}
 	this.findNotScheduledTasks = () => {
 		return this.tasks.filter(task => task.done == false && task.dueDate == null)
@@ -49,7 +82,7 @@ function tasksDataService() {
 		return this.tasks.filter(task => task.done == false && task.dueDate != null && task.dueDate.getDate() <= (new Date().getDate() + 1))
 	}
 	this.findDoneTasks = () => {
-		return this.tasks.filter(task => task.done == true)
+		return  this.tasks.filter(task => task.done == true)
 	}
 	this.findTasks = (status, query) => {
 		if (query)
@@ -75,6 +108,8 @@ function tasksDataService() {
 		this.taskCounter.doneTasks = this.findDoneTasks().length
 	}
 
+	this.loadData()
+	
 }
 
 export default name	
