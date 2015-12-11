@@ -1,0 +1,94 @@
+<md-input-container class="md-tall md-display-1">
+	<label >Write your new goal...</label>
+	<input placeholder="what are you going to do?" ng-model="newTask.title" ng-blur='newTask.create()' ng-keypress="newTask.onKeyPress($event)">
+</md-input-container>
+<md-list>
+  <md-list-item>
+    <md-button>
+      <md-icon ng-style="{color: 'orange'}">alarm</md-icon>
+    </md-button>
+    <p>Importante</p>
+    <md-fab-speed-dial md-direction="left" class="md-fling">
+  <md-fab-trigger>
+    <md-button> <md-icon>more_vert</md-icon></md-button>
+  </md-fab-trigger>
+  <md-fab-actions>
+    <md-button >
+      <md-icon class="md-primary">done</md-icon>
+    </md-button>
+    <md-button >
+      <md-icon >edit</md-icon>
+    </md-button>
+    <md-button >
+      <md-icon >delete</md-icon>
+    </md-button>
+  </md-fab-actions>
+</md-fab-speed-dial>
+  </md-list-item>
+  <md-list-item>
+    <md-button>
+      <md-icon ng-style="{color: 'orange'}">alarm</md-icon>
+    </md-button>
+    <p>Una Tarea para hacer</p>
+    <md-button>
+      <md-icon>more_vert</md-icon>
+    </md-button>
+  </md-list-item>
+  <md-list-item>
+    <md-button>
+      <md-icon ng-style="{color: 'green'}">done</md-icon>
+    </md-button>
+    <p>Una Tarea ya hecha !!!!</p>
+    <md-button>
+      <md-icon>more_vert</md-icon>
+    </md-button>
+  </md-list-item>
+  <md-list-item>
+    <md-button>
+      <md-icon ng-style="{color: 'orange'}">alarm</md-icon>
+    </md-button>
+    <p>Una Tarea agendada</p>
+    <md-button>
+      <md-icon>more_vert</md-icon>
+    </md-button>
+  </md-list-item>
+  <md-list-item>
+    <md-button>
+      <md-icon ng-style="{color: 'blue'}">inbox</md-icon>
+    </md-button>
+    <p>Una Tarea importante que no ha sido agendada</p>
+    <md-button>
+      <md-icon>more_vert</md-icon>
+    </md-button>
+  </md-list-item>
+  <md-list-item>
+    <md-button>
+      <md-icon ng-style="{color: 'blue'}">inbox</md-icon>
+    </md-button>
+    <p>Una Tarea importante</p>
+    <md-button>
+      <md-icon>more_vert</md-icon>
+    </md-button>
+  </md-list-item>
+  <md-list-item>
+    <md-button>
+      <md-icon ng-style="{color: 'green'}">done</md-icon>
+    </md-button>
+    <p>Una Tarea con un texto muy largo y poco contenido :-)</p>
+    <md-button>
+      <md-icon>more_vert</md-icon>
+    </md-button>
+  </md-list-item>
+  <md-list-item>
+    <md-button>
+      <md-icon ng-style="{color: 'green'}">done</md-icon>
+    </md-button>
+    <p>Una Tarea ya hecha !!!!</p>
+    <md-button>
+      <md-icon>more_vert</md-icon>
+    </md-button>
+  </md-list-item>
+</md-list>
+<md-button class="md-fab md-fab-bottom-right">
+  <md-icon>add_circle</md-icon>
+</md-button>
