@@ -2,21 +2,40 @@
 	<span flex></span>
 	<md-card flex="80">
 		<md-card-title layout="row">
+			<span flex="5"></span>
 			<md-card-title-text layout="column">
 				<span class="md-headline">Mi tarea para hacer</span>
-				<span class="md-subhead">Estado</span>
+				<span class="md-subhead">Estado y fecha creación</span>
 			</md-card-title-text>
 			<span flex></span>
 			<md-card-title-media>
 				<md-icon>inbox</md-icon>
 			</md-card-title-media>
-		</md-card-title <md-card-content>
-		<p>Formulario para editar fecha y descripciones</p>
-		<p>Con muchas cosas</p>
+			<span flex="5"></span>
+		</md-card-title>
+		<md-card-content>
+			<form>
+				<md-input-container>
+					<label>Title:</label>
+					<input>
+				</md-input-container>
+				<md-input-container flex>
+					<label>Description:</label>
+					<textarea columns="1"></textarea>
+				</md-input-container>
+				<md-input-container>
+					<label>Due Date:</label>
+					<input type="date">
+				</md-input-container>
+			</form>
 		</md-card-content>
 		<md-card-actions layout="row" layout-align="end center">
-			<md-button><md-icon>delete</md-icon>Borrar</md-button>
-			<md-button class="md-primary"><md-icon>save</md-icon>Guardar</md-button>
+			<md-button>
+				<md-icon>delete</md-icon>Delete</md-button>
+			<md-button>
+				<md-icon>done</md-icon>Is Done</md-button>
+			<md-button class="md-primary">
+				<md-icon>save</md-icon>Save</md-button>
 		</md-card-actions>
 	</md-card>
 	<span flex></span>

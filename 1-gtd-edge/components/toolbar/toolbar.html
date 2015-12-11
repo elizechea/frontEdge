@@ -1,12 +1,13 @@
-<md-toolbar layout="row" class="md-primary">
-  <md-button class="menu">
-    <md-icon>assignment turned in</md-icon>
+<md-toolbar layout="row" class="md-primary md-toolbar-tools">
+  <md-button ng-link="home" class="menu md-icon-button" layout="row" layout-align="bottom bottom">
+    <md-icon class="md-48" >assignment</md-icon>
   </md-button>
-  <h1 class="md-display-1">Getting Things Done to the edge</h1>
+  <h2 class="md-display-1">Getting Things Done to the edge</h2>
   <span flex></span>
-  <md-input-container layout-padding class="md-accent">
-    <md-icon>search</md-icon>
-    <input class="md-accent" type="text" placeholder="search..." >
+  <md-icon>search</md-icon>
+  <md-input-container flex="35" layout-padding class="md-accent">
+    <label for="">search</label>
+    <input ng-style="{color:'white'}"  type="text" placeholder="search..." >
   </md-input-container>
   <span flex="5"></span>
 </md-toolbar>
