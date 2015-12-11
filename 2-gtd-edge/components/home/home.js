@@ -62,6 +62,9 @@ function HomeController($routeParams,$router, $mdToast, tasksDataService) {
         .hideDelay(3000)
     )
 	}
+	this.editTask = (taskId)=>{
+		$router.parent.navigate('/task/'+taskId)
+	}
 }
 
 export default name

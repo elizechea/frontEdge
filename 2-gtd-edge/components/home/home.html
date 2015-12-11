@@ -1,6 +1,8 @@
 <md-input-container ng-show="home.creating" class="md-tall md-display-1">
   <label>Write your new goal...</label>
-  <input placeholder="what are you going to do?" ng-model="home.title" ng-blur='home.create()' ng-keypress="home.onKeyPress($event)">
+  <input placeholder="what are you going to do?" 
+  ng-model="home.title" ng-blur='home.create()' 
+  ng-keypress="home.onKeyPress($event)" ng-focus="home.creating">
 </md-input-container>
 <md-list>
   <md-list-item ng-repeat="task in home.tasks | orderBy:'-id'">
@@ -17,23 +19,23 @@
         </md-button>
       </md-fab-trigger>
       <md-fab-actions>
-        <md-button>
-          <md-icon ng-click="home.doTask(task.id)" ng-style="{color: 'green'}">done</md-icon>
+        <md-button ng-click="home.editTask(task.id)"  >
+          <md-icon class="md-primary" style="padding-bottom:0px;">edit</md-icon>
         </md-button>
-        <md-button>
-          <md-icon ng-click="home.scheduleTask(task.id)" ng-style="{color: 'orange'}">alarm_add</md-icon>
+        <md-button ng-click="home.doTask(task.id)">
+          <md-icon  ng-style="{color: 'green'}">done</md-icon>
         </md-button>
-        <md-button>
-          <md-icon class="md-primary">edit</md-icon>
+        <md-button ng-click="home.scheduleTask(task.id)">
+          <md-icon  ng-style="{color: 'orange'}">alarm_add</md-icon>
         </md-button>
-        <md-button>
-          <md-icon ng-click="home.deleteTask(task.id)" >delete</md-icon>
+        <md-button ng-click="home.deleteTask(task.id)">
+          <md-icon  >delete</md-icon>
         </md-button>
       </md-fab-actions>
     </md-fab-speed-dial>
   </md-list-item>
 </md-list>
-<md-button class="md-fab md-fab-bottom-right">
-  <md-icon ng-click="home.creating=true">add_circle</md-icon>
+<md-button ng-click="home.creating=!home.creating" class="md-fab md-fab-bottom-right">
+  <md-icon >add_circle</md-icon>
 </md-button>
 
