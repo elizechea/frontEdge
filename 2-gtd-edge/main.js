@@ -16,6 +16,7 @@ ng.module('frontEdge')
 function AppController($router) { }
 
 AppController.$routeConfig = [
-  { path: '/', component: 'home'} ,
+	{ path: '/', redirectTo: '/_' },
+	{ path: '/:id', component: 'home'} ,
  	{ path: '/task/:id', component:'task'}
  ]

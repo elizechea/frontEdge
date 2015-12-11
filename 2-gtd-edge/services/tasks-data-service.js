@@ -24,9 +24,15 @@ function theService($window) {
 		}
 		else{
 			this.tasks = [
-					{ id: 1, title: 'Try Material Design', description: 'Containers and lists', createdDate: new Date('2015-12-03'), dueDate: null, doneDate: new Date('2015-12-04'), done: true, status: 'completed' },
-					{ id: 2, title: 'Practicing with components', description: 'Use of controllers and scope', createdDate: new Date('2015-12-04'), dueDate: new Date(), doneDate: null, done: false, status: 'scheduled' },
-					{ id: 3, title: 'Install JSPM', description: 'Import and references', createdDate: new Date('2015-12-04'), dueDate: null, doneDate: null, done: false, status: 'pending' }]
+					{ id: 1, title: 'Try Material Design', description: 'Containers and lists', 
+					createdDate: new Date('2015-12-03'), dueDate: null, doneDate: new Date('2015-12-04'), 
+					done: true, status: 'done' },
+					{ id: 2, title: 'Practicing with components', description: 'Use of controllers and scope', 
+					createdDate: new Date('2015-12-04'), dueDate: new Date(), doneDate: null, 
+					done: false, status: 'scheduled' },
+					{ id: 3, title: 'Install JSPM', description: 'Import and references', 
+					createdDate: new Date('2015-12-04'), dueDate: null, doneDate: null, 
+					done: false, status: 'new' }]
 			this.taskId = 3
 			this.saveData()
 		}
@@ -49,7 +55,7 @@ function theService($window) {
 	this.createTask = (title) => {
 		if(title=='') return
 		this.taskId++;
-		var task = { id: this.taskId, title, createdDate: new Date(), dueDate: null, doneDate: null, done: false }
+		var task = { id: this.taskId, title, createdDate: new Date(), dueDate: null, doneDate: null, done: false, status: 'new' }
 		this.tasks.push(task)
 		this.saveData()
 	}
@@ -64,11 +70,11 @@ function theService($window) {
 		else
 			task.doneDate = null
 		if (task.doneDate)
-			task.status = "completed"
+			task.status = "done"
 		else if (task.dueDate)
 			task.status = "scheduled"
 		else
-			task.status = "pending"
+			task.status = "new"
 		this.saveData()
 		
 	}
