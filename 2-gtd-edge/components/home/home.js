@@ -8,8 +8,8 @@ ng.module(name, ['ngMaterial'])
 	.controller('HomeController', HomeController)
 
 function HomeController($routeParams,$router, $mdToast, tasksDataService) {
-	this.status = $routeParams.id != '_' ? $routeParams.id : null
-	this.query = null
+	this.status = $routeParams.s != '_' ? $routeParams.s : null
+	this.query = $routeParams.q != '_' ? $routeParams.q : null
 
 	this.tasks = tasksDataService.findTasks(this.status, this.query)
 	this.onKeyPress = ($event) => {
