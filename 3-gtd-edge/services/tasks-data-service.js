@@ -106,17 +106,18 @@ function theService($window) {
 	}
 
 	this.taskCounter = {
-		notScheduledTasks: this.findNotScheduledTasks().length,
+		newTasks: this.findNotScheduledTasks().length,
 		scheduledTasks: this.findScheduledTasks().length,
 		todayTasks: this.findTodayTasks().length,
 		doneTasks: this.findDoneTasks().length
 	}
 
 	this.updateCounter = () => {
-		this.taskCounter.notScheduledTasks = this.findNotScheduledTasks().length
+		this.taskCounter.newTasks = this.findNotScheduledTasks().length
 		this.taskCounter.scheduledTasks = this.findScheduledTasks().length
 		this.taskCounter.todayTasks = this.findTodayTasks().length
 		this.taskCounter.doneTasks = this.findDoneTasks().length
+		this.taskCounter.allTasks = this.tasks.length
 	}
 
 	this.loadData()

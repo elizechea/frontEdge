@@ -10,8 +10,8 @@ ng.module(name, ['ngMaterial'])
 		bindings: {
 
 		},
-		controller: function () {
-
+		controller: function (tasksDataService) {
+				this.taskCounter = tasksDataService.taskCounter
 		}
 		})
 
