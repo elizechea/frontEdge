@@ -1,0 +1,35 @@
+<md-sidenav md-is-locked-open="true" 
+  layout="column" 
+  layout-fill>
+  <md-list>
+    <md-list-item>
+      <md-button ng-link="home({s:'_',q:'_'})" >
+        <md-icon ng-style="{color: 'teal'}">assignment</md-icon>
+      </md-button>
+      <p>All tasks</p>
+    </md-list-item> 
+    <md-divider></md-divider>
+    <md-list-item >
+      <md-button ng-link="home({s:'new',q:'_'})">
+        <md-icon ng-style="{color: 'blue'}">inbox</md-icon>
+      </md-button>
+      <p>New</p>
+    </md-list-item>
+    <md-list-item>
+      <md-button ng-link="home({s:'scheduled',q:'_'})">
+        <md-icon ng-style="{color: 'orange'}">alarm</md-icon>
+      </md-button>
+      <p>Scheduled</p>
+    </md-list-item>
+    <md-list-item>
+      <md-button ng-link="home({s:'done',q:'_'})">
+        <md-icon  ng-style="{color: 'green'}">done</md-icon>
+      </md-button>
+      <p>Done</p>
+    </md-list-item>
+    <md-divider></md-divider>
+  </md-list>
+  <div flex></div>
+  <a href="http://academia-binaria.com">Academia Binaria</a>
+  <div flex="5"></div>
+</md-sidenav>
