@@ -4,8 +4,8 @@
 		<md-card-title layout="row">
 			<span flex="5"></span>
 			<md-card-title-text layout="column">
-				<span class="md-headline">Mi tarea para hacer</span>
-				<span class="md-subhead">Estado y fecha creación</span>
+				<span class="md-headline">{{task.task.title}}</span>
+				<span class="md-subhead">{{task.task.description}}</span>
 			</md-card-title-text>
 			<span flex></span>
 			<md-card-title-media>
@@ -17,24 +17,24 @@
 			<form>
 				<md-input-container>
 					<label>Title:</label>
-					<input>
+					<input ng-model="task.task.title" type="text">
 				</md-input-container>
 				<md-input-container flex>
 					<label>Description:</label>
-					<textarea columns="1"></textarea>
+					<textarea ng-model="task.task.description" columns="1"></textarea>
 				</md-input-container>
 				<md-input-container>
 					<label>Due Date:</label>
-					<input type="date">
+					<input ng-model="task.task.dueDate" type="date">
 				</md-input-container>
 			</form>
 		</md-card-content>
 		<md-card-actions layout="row" layout-align="end center">
-			<md-button>
+			<md-button ng-click="task.deleteTask()">
 				<md-icon>delete</md-icon>Delete</md-button>
-			<md-button>
+			<md-button ng-click="task.task.done=true;task.saveTask()">
 				<md-icon>done</md-icon>Is Done</md-button>
-			<md-button class="md-primary">
+			<md-button ng-click="task.saveTask()" class="md-primary">
 				<md-icon>save</md-icon>Save</md-button>
 		</md-card-actions>
 	</md-card>
