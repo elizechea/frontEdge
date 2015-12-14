@@ -1,10 +1,14 @@
-<!doctype html>
-<html lang="es">
+<html>
 
 <head>
 	<title>gtdEdge</title>
 	<meta charset="utf-8" />
-	<style>	a {	color:inherit;text-decoration: none;}	</style>
+	<style>
+		a {
+			color: inherit;
+			text-decoration: none;
+		}
+	</style>
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<script src="jspm_packages/system.js"></script>
 	<script src="config.js"></script>
@@ -15,12 +19,19 @@
 
 <body ng-controller="AppController as app">
 
-	<div ng-hide="true">Cargando...</div>
+	<h1 ng-if="false">Loading..., please wait ;-)</h1>
 
-	<title-bar></title-bar>
+	<header>
+		<toolbar></toolbar>
+  </header>
+	<section layout="row" layout-wrap>
+		<span >
+			<sidebar></sidebar>
+		</span>
+		<span flex ng-viewport>
 
-	<div ng-viewport></div>
-	
+		</span>
+  </section>
 
 </body>
 

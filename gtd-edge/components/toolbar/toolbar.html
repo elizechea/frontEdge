@@ -1,0 +1,12 @@
+<md-toolbar layout="row" class="md-primary md-toolbar-tools">
+  <a ng-link="home({s:'_',q:'_'})" style="padding-bottom:0px; padding-right:10px;">
+    <md-icon >assignment</md-icon>
+  </a>
+  <h2 class="md-display-1">Getting Things Done to the edge</h2>
+  <span flex></span>
+  <md-input-container md-no-float class="md-accent" flex="50" style="padding-bottom:0px;">
+    <md-icon>search</md-icon>
+    <input ng-model="toolbar.searchInput" ng-keypress="toolbar.onKeyPress($event)"
+      placeholder="Search here" ng-style="{color:'white'}" >
+  </md-input-container>
+</md-toolbar>

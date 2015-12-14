@@ -3,16 +3,20 @@
 <head>
 	<title>Front Edge</title>
 	<meta charset="utf-8" />
+	<!--jspm engine-->
 	<script src="jspm_packages/system.js"></script>
+	<!--jspm configuration-->
 	<script src="config.js"></script>
 	<script>
+		//our program
 		System.import('lib/main.js');
 	</script>
 </head>
 
 <body>
-	<div ng-hide="true">Cargando...</div>
+	<div ng-hide="true">Waiting until AngularJS is loaded...</div>
 
+	<!--landing component-->
 	<landing></landing>
 </body>
 

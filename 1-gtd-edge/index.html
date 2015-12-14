@@ -3,12 +3,14 @@
 <head>
 	<title>gtdEdge</title>
 	<meta charset="utf-8" />
+	<!--custom style-->
 	<style>
 		a {
 			color: inherit;
 			text-decoration: none;
 		}
 	</style>
+	<!--public cdn for icons-->
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<script src="jspm_packages/system.js"></script>
 	<script src="config.js"></script>
@@ -17,21 +19,25 @@
 	</script>
 </head>
 
+<!--main app controller required by newRouter -->
+
 <body ng-controller="AppController as app">
 
 	<h1 ng-if="false">Loading..., please wait ;-)</h1>
 
 	<header>
 		<toolbar></toolbar>
-  </header>
+	</header>
+	<!--¡¡¡¡flex!!!!-->
 	<section layout="row" layout-wrap>
-		<span >
+		<span>
 			<sidebar></sidebar>
 		</span>
+		<!--ng-viewport is the new ng-view-->
 		<span flex ng-viewport>
 			
 		</span>
-  </section>
+	</section>
 
 </body>
 

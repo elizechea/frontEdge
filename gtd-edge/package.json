@@ -1,19 +1,8 @@
 {
   "name": "gtd-edge",
   "version": "1.0.0",
-  "description": "Getting Things Done to the Edge",
-  "main": "server.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [
-    "GTD",
-    "JSPM",
-    "AngularJS1.5",
-    "ES6",
-    "MaterialDesign"
-  ],
-  "author": "ALberto Basalo",
+  "description": "Tutorial AngularMaterial ES6 JSPM NewRouter AngularJS1.5",
+  "author": "albertobasalo@agorabinaria.com",
   "license": "ISC",
   "jspm": {
     "dependencies": {
